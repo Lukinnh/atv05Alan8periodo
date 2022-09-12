@@ -1,0 +1,35 @@
+class Item :
+    def __init__(self, item, valor , peso , valorkg):
+        self.item = item
+        self.valor = valor
+        self.peso = peso
+        self.valorkg = valorkg
+    
+def main():
+
+    capacidaade_mochila = 50
+    capacidade = 0
+    total_valor = 0
+
+    item1 = Item(item=1,valor=60,peso=10,valorkg=6)
+    item2 = Item(item=2,valor=100,peso=20,valorkg=5)
+    item3 = Item(item=3,valor=120,peso=30,valorkg=4)
+
+    itens = [item1,item2,item3]
+    backpack = []
+
+    while capacidade < capacidaade_mochila:
+        for item in itens:
+            if item.peso <= capacidaade_mochila - capacidade:
+                backpack.append(item)
+                capacidade+= item.peso
+                total_valor+= item.valor
+
+
+    print(f'Item  Valor  Peso  Valor KG')
+    for item in backpack:
+        print(f'{item.item}     {item.valor}     {item.peso}     {item.valorkg}')
+    print('Capacidade : ' + str(capacidade))
+    print('Valor total : ' + str(total_valor))
+
+main()
